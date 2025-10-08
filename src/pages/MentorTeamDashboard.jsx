@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'https://teamtrack-backend-wwo6.onrender.com';
 import {
   ArrowLeft,
   Users,
@@ -102,7 +104,7 @@ const MentorTeamDashboard = () => {
       setSelectedResource(resource);
     } else {
       // For files, open in new tab
-      window.open(`http://localhost:5001${resource.fileUrl}`, '_blank');
+      window.open(`${API_BASE_URL}${resource.fileUrl}`, '_blank');
     }
   };
 

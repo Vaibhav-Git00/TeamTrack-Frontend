@@ -1,6 +1,8 @@
 import React from 'react';
 import { X, Download, ExternalLink, Calendar, User } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'https://teamtrack-backend-wwo6.onrender.com';
+
 const ResourceModal = ({ resource, onClose }) => {
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -23,7 +25,7 @@ const ResourceModal = ({ resource, onClose }) => {
   const handleDownload = () => {
     if (resource.fileUrl) {
       const link = document.createElement('a');
-      link.href = `http://localhost:5001${resource.fileUrl}`;
+      link.href = `${API_BASE_URL}${resource.fileUrl}`;
       link.download = resource.fileName || resource.title;
       document.body.appendChild(link);
       link.click();
@@ -39,7 +41,7 @@ const ResourceModal = ({ resource, onClose }) => {
             <div className="bg-gray-100 rounded-lg p-4 text-center">
               <p className="text-gray-600 mb-4">PDF Document</p>
               <iframe
-                src={`http://localhost:5001${resource.fileUrl}`}
+                src={`${API_BASE_URL}${resource.fileUrl}`}
                 className="w-full h-96 border rounded"
                 title={resource.title}
               />
@@ -53,7 +55,7 @@ const ResourceModal = ({ resource, onClose }) => {
                 Download PDF
               </button>
               <button
-                onClick={() => window.open(`http://localhost:5001${resource.fileUrl}`, '_blank')}
+                onClick={() => window.open(`${API_BASE_URL}${resource.fileUrl}`, '_blank')}
                 className="btn btn-outline flex items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />
@@ -88,7 +90,7 @@ const ResourceModal = ({ resource, onClose }) => {
                 Download Document
               </button>
               <button
-                onClick={() => window.open(`http://localhost:5001${resource.fileUrl}`, '_blank')}
+                onClick={() => window.open(`${API_BASE_URL}${resource.fileUrl}`, '_blank')}
                 className="btn btn-outline flex items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />
@@ -103,7 +105,7 @@ const ResourceModal = ({ resource, onClose }) => {
           <div className="space-y-4">
             <div className="text-center">
               <img
-                src={`http://localhost:5001${resource.fileUrl}`}
+                src={`${API_BASE_URL}${resource.fileUrl}`}
                 alt={resource.title}
                 className="max-w-full max-h-96 mx-auto rounded-lg shadow-lg"
               />
@@ -117,7 +119,7 @@ const ResourceModal = ({ resource, onClose }) => {
                 Download Image
               </button>
               <button
-                onClick={() => window.open(`http://localhost:5001${resource.fileUrl}`, '_blank')}
+                onClick={() => window.open(`${API_BASE_URL}${resource.fileUrl}`, '_blank')}
                 className="btn btn-outline flex items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />
@@ -190,7 +192,7 @@ const ResourceModal = ({ resource, onClose }) => {
                 Download File
               </button>
               <button
-                onClick={() => window.open(`http://localhost:5001${resource.fileUrl}`, '_blank')}
+                onClick={() => window.open(`${API_BASE_URL}${resource.fileUrl}`, '_blank')}
                 className="btn btn-outline flex items-center gap-2"
               >
                 <ExternalLink className="h-4 w-4" />

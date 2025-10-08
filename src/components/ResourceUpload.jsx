@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { X, Upload, Link, FileText, Plus } from 'lucide-react';
 
+const API_BASE_URL = import.meta.env.VITE_API_URL?.replace('/api', '') || 'https://teamtrack-backend-wwo6.onrender.com';
+
 const ResourceUpload = ({ teamId, onUploadSuccess, onClose }) => {
   const [uploadType, setUploadType] = useState('file');
   const [loading, setLoading] = useState(false);
@@ -52,7 +54,7 @@ const ResourceUpload = ({ teamId, onUploadSuccess, onClose }) => {
       formData.append('teamId', teamId);
       formData.append('tags', fileData.tags);
 
-      const response = await fetch('http://localhost:5001/api/resources/upload', {
+      const response = await fetch(`${API_BASE_URL}/api/resources/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -86,7 +88,7 @@ const ResourceUpload = ({ teamId, onUploadSuccess, onClose }) => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5001/api/resources/create', {
+      const response = await fetch(`${API_BASE_URL}/api/resources/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
