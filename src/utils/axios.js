@@ -1,8 +1,19 @@
 import axios from 'axios';
 
+// Get API URL with fallback
+const getApiUrl = () => {
+  const envUrl = import.meta.env.VITE_API_URL;
+  const fallbackUrl = 'https://teamtrack-backend-wwo6.onrender.com/api';
+  
+  console.log('Environment VITE_API_URL:', envUrl);
+  console.log('Using API URL:', envUrl || fallbackUrl);
+  
+  return envUrl || fallbackUrl;
+};
+
 // Create axios instance
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://teamtrack-backend-wwo6.onrender.com/api',
+  baseURL: getApiUrl(),
   headers: {
     'Content-Type': 'application/json',
   },

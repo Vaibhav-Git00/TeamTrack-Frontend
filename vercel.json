@@ -1,0 +1,10 @@
+{
+  "env": {
+    "VITE_API_URL": "https://teamtrack-backend-wwo6.onrender.com/api"
+  },
+  "build": {
+    "env": {
+      "VITE_API_URL": "https://teamtrack-backend-wwo6.onrender.com/api"
+    }
+  }
+}
