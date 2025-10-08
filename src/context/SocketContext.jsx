@@ -23,7 +23,7 @@ export const SocketProvider = ({ children }) => {
   useEffect(() => {
     if (user && token) {
       // Initialize socket connection with better configuration
-      const newSocket = io(import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5001', {
+      const newSocket = io(import.meta.env.VITE_API_URL?.replace('/api', '') || 'https://teamtrack-backend-wwo6.onrender.com', {
         auth: {
           token: token
         },
