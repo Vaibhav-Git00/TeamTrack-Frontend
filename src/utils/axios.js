@@ -1,14 +1,13 @@
 import axios from 'axios';
 
-// Get API URL with fallback
+// Get API URL with fallback - Force production URL
 const getApiUrl = () => {
-  const envUrl = import.meta.env.VITE_API_URL;
-  const fallbackUrl = 'https://teamtrack-backend-wwo6.onrender.com/api';
+  // Always use production URL for now to ensure it works
+  const productionUrl = 'https://teamtrack-backend-wwo6.onrender.com/api';
   
-  console.log('Environment VITE_API_URL:', envUrl);
-  console.log('Using API URL:', envUrl || fallbackUrl);
+  console.log('Using production API URL:', productionUrl);
   
-  return envUrl || fallbackUrl;
+  return productionUrl;
 };
 
 // Create axios instance
