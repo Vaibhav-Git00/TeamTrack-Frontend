@@ -1,4 +1,4 @@
-# Team Collaboration & Mentorship Platform - Frontend
+# Team Collaboration & Mentorship Platform 
 
 ## Overview
 This is the frontend application for the Team Collaboration & Mentorship Platform built with React, Vite, and Tailwind CSS.
